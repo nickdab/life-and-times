@@ -1,8 +1,10 @@
 <text>
 	<paragraph>
-		<primary>Welcome!</primary>
+		<type>primary</type>
+		<body>Welcome!</body>
 	</paragraph>
 	<paragraph>
-		<secondary>Ibsum Absolum Ooosalem?</secondary>
+		<type>secondary</type>
+		<body>Sorry, I am testing and super-updating this site right now. It will be back soon, way better than ever!</body>
 	</paragraph>
 </text>

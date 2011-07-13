@@ -1,46 +1,34 @@
 function body_text(xml_name)
 {
-	if (window.XMLHttpRequest)
-	{
-		xhttp=new XMLHttpRequest(); //for IE7+, Firefox, Chrome
+	if (window.XMLHttpRequest)
+	{
+		xhttp=new XMLHttpRequest(); //for IE7+, Firefox, Chrome
+	}	else
+	{
+		xhttp=new ActiveXObject("Microsoft.XMLHTTP"); //IE6-
 	}
-	else
-	{
-		xhttp=new ActiveXObject("Microsoft.XMLHTTP"); //IE6-
-	}
-
 	xhttp.open("GET",xml_name,false); //get the xml file
 	xhttp.send("");	//complete connection
-	xmlDoc=xhttp.responseXML;
-
-	text=xmlDoc.getElementsByTagName("text"); //opening tag
-	
+	xmlDoc=xhttp.responseXML;	
+	text=xmlDoc.getElementsByTagName("text"); //opening tag	
 	paragraph = text[0].getElementsByTagName("paragraph"); //gets each "paragraph" tag, starting with the first
-		
 	for (n = 0; n<paragraph.length; n++)
-	{
-		type = paragraph[n].getElementsByTagName("type");
-		
-		if (type[0].firstChild.nodeValue == "primary") 
-		{
-			document.write("<p class = \"primary\">"); //for primary text
-		}	
-		else
-		{
-			document.write("<p class = \"secondary\">"); //for secondary text
-		}
-				
+	{
+		type = paragraph[n].getElementsByTagName("type");		
+		if (type[0].firstChild.nodeValue == "primary") 
+		{
+			document.write("<p class = \"primary\">"); //for primary text
+		}			else
+		{
+			document.write("<p class = \"secondary\">"); //for secondary text
+		}		
 		body = paragraph[n].getElementsByTagName("body");
-				
-		for (c = 0; c<body.length; c++) //get each "body" tag
+		for (c = 0; c<body.length; c++) //get each "body" tag
 		{
-			document.write(body[c].firstChild.nodeValue); //gets the text located in the "body" tag
+			document.write(body[c].firstChild.nodeValue); //gets the text located in the "body" tag
 			document.write("<br />"); //breaks after each "body" tag
-		}
-				
-				
+		}
 		document.write("</p>");
-			
 	}
 
 }
