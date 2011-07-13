@@ -1,37 +1,54 @@
 <?php
 
-	function body_text($file_name)
-	{
-		$xmlDoc = new DOMDocument();
-		$xmlDoc -> load($file_name);
-		
-		$element = $xmlDoc->documentElement;
-		
-		foreach ($element->childNodes as $node)
+	class Text
+	{	
+	//this class is responsible for parsing an XML file for text, and outputing that
+	//text onto the website.
+	
+	//make the member variables private, to make updating the code not break everything
+		private string $html;
+	
+	//public methods:
+	
+		public function addParagraph($file_name)
 		{
-			if ($node->nodeName == "paragraph")
+			$xmlDoc = new DOMDocument();
+			$xmlDoc -> load($file_name);
+		
+			$element = $xmlDoc->documentElement;
+		
+			foreach ($element->childNodes as $node)
 			{
-				foreach ($node->childNodes as $paragraph)
+				if ($node->nodeName == "paragraph")
 				{
-					if ($paragraph->nodeName == "type")
+					foreach ($node->childNodes as $paragraph)
+					{
+						if ($paragraph->nodeName == "type")
 						{	
-							if ($paragraph->nodeValue == "primary")
-							{	
-								print "<p class = \"primary\">";
-							}
-							else if ($paragraph->nodeValue == "secondary")
-							{
-							print "<p class = \"secondary\">";
+								if ($paragraph->nodeValue == "primary")
+								{	
+									$html = $html . "<p class = \"primary\">";
+								}
+								else if ($paragraph->nodeValue == "secondary")
+								{
+									$html = $html . "<p class = \"secondary\">";
+								}
+						}
+						else if ($paragraph->nodeName == "body")
+						{
+							$html = $html . $paragraph->firstChild->nodeValue."<br />";
 						}
 					}
-					else if ($paragraph->nodeName == "body")
-					{
-						print $paragraph->firstChild->nodeValue."<br />";
-					}
+					$html = $html . "</p>";
 				}
-				print "</p>";
 			}
 		}
+		
+		public function printHTML()
+		{
+			print $html;
+		}
+		
 	}
 	
 	function picture($file_name)
