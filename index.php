@@ -21,7 +21,7 @@
 		<?php
 			$text->printHTML();
 		?>
-		<div>
+		</div>
 	</body>
 	<footer>
 	</footer>
