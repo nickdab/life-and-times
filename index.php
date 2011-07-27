@@ -8,15 +8,18 @@
 		$text = new Text();
 		$text->addParagraph("Welcome.xml");
 		
-		$pictures = new Pictures();
-		$pictures->addPicture("title.xml");
+		/*$pictures = new Pictures();
+		$pictures->addPicture("title.xml");*/
 	?>
 	</header>
 	<body>
 
 		<?php 
-			$pictures->printHTML();
+			//$pictures->printHTML();
 		?>
+		
+		<p id = "title">Life & Times</p>
+		
 		<div id = "main_flow" >
 		<?php
 			$text->printHTML();
