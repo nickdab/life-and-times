@@ -7,20 +7,25 @@
 
 		$text = new Text();
 		$text->addParagraph("Welcome.xml");
+		$title = new Text();
+		$title->makeTitle();
 		
 		/*$pictures = new Pictures();
 		$pictures->addPicture("title.xml");*/
 	?>
+	
 	</header>
 	<body>
 
 		<?php 
+			$title->printHTML();
 			//$pictures->printHTML();
-		?>
+		?>	
 		
-		<p id = "title">Life & Times</p>
 		
-		<div id = "main_flow" >
+
+		<div id = "main_flow">
+		
 		<?php
 			$text->printHTML();
 		?>

@@ -3,7 +3,10 @@
 /* All of this will change soon. I'm just using this while I'm testing other stuff.*/
 body
 {
-background-color:#FFF;
+background-image:url("background.jpg");
+/*background-position:top;*/
+background-repeat:no-repeat;
+background-size:100% 225px;
 overflow:visible;
 }
 
@@ -19,6 +22,13 @@ margin-left:15em;
 text-align:center;
 font-size:.7em;
 font-family:Times, Times New Roman;
+}
+
+a
+{
+margin-left:10px;
+text-decoration:none;
+color:#000000;
 }
 
 /*#title
@@ -46,17 +56,51 @@ left:18em;
 z-index:1;
 }*/
 
+#background
+{
+	position:absolute;
+	height:98%;
+	width:75%;
+	top:10px;
+	bottom:10px;
+	left:200px;
+	z-index:-1;
+	border:solid;
+	border-width:5px;
+	border-color:#000;
+}
+
 #main_flow
 {
 position:absolute;
-top:10em;
-left:20em;
-right:20em;
+height:100%;
+width:50%;
+color:#000;
+top:200px;
+left:25%;
+right:25%;
+z-index:-1;
+}
+
+#links
+{
+position:absolute;
+top:198px;
+height:25px;
+width:460px;
+font-family:OpenBaskerville;
+left:35%;
+border-top:solid;
+border-color:#000;
+border-width:3px;
 }
 
 #title
 {
-	font-size: 62px;
+	position: absolute;
+	top:25px;
+	left:35%;
+	font-size: 84px;
 	font-family: OpenBaskerville;
 	text-align: center;
 }
@@ -87,7 +131,7 @@ top:5em;
 
 .primary
 {
-font-size: 30px;
+font-size: 46px;
 font-family: GenBasR;
 color:#C00;
 text-align:left;

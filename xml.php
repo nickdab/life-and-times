@@ -5,9 +5,14 @@
 		//this class is responsible for parsing an XML file for text, and outputing that
 		//text onto the website.
 	
-	
 		//make the member properties private:	
 		private $html = "";
+		
+		//default constructor:
+		function makeTitle()
+		{
+			$this->html = "<p id = \"title\">Life & Times</p><span id=\"links\"><a href=\"writing.html\">writing</a><a href=\"video.html\">video</a></span>";
+		}
 	
 		//public methods:
 	
